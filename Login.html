@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Login</h1>
+<form method="post">
+    <label>Username<br /><input name="username" required /></label><br /><br />
+    <label>Password<br /><input type="password" name="password" required /></label><br /><br />
+    <button class="btn btn-primary" type="submit">Login</button>
+</form>
+<p><small>Demo: username "demo", password "demo123".</small></p>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Your posts</h1>
+<p><a class="btn btn-primary" href="{{ url_for('new_post') }}">Add new post</a></p>
+
+{% if posts|length == 0 %}
+<p>You have no posts yet.</p>
+{% else %}
+<table>
+    <thead>
+    <tr><th>Title</th><th>Published</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+    <tr>
+        <td>{{ post['title'] }}</td>
+        <td>{{ post['published_at'] }}</td>
+        <td>
+            <a class="btn" href="{{ url_for('edit_post', post_id=post['id']) }}">Edit</a>
+            <form method="post" action="{{ url_for('delete_post', post_id=post['id']) }}" style="display:inline;">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

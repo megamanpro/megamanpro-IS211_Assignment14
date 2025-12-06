@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Edit post</h1>
+<form method="post">
+    <label>Title<br /><input name="title" value="{{ post['title'] }}" required /></label><br /><br />
+    <label>Content (HTML allowed)<br />
+        <textarea name="content" rows="10" required>{{ post['content'] }}</textarea>
+    </label><br /><br />
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endblock %}

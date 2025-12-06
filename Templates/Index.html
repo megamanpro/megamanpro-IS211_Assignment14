@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>All posts</h1>
+{% if posts|length == 0 %}
+<p>No posts yet.</p>
+{% else %}
+{% for post in posts %}
+<article>
+    <h2>{{ post['title'] }}</h2>
+    <p><small>Published: {{ post['published_at'] }} — by {{ post['author'] }}</small></p>
+    <div>{{ post['content'] | safe }}</div>
+    <hr />
+</article>
+{% endfor %}
+{% endif %}
+{% endblock %}
